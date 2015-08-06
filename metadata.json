@@ -9,10 +9,10 @@
   "issues_url": "https://github.com/thbe/puppet-ssmtp/issues",
   "operatingsystem_support": [
     { "operatingsystem": "Scientific", "operatingsystemrelease": [ "6.0", "7.0" ] },
-    { "operatingsystem": "CentOS", "operatingsystemrelease": [ "6.0", "7.0" ] }
+    { "operatingsystem": "CentOS", "operatingsystemrelease": [ "6.0", "7.0" ] },
+    { "operatingsystem": "Ubuntu", "operatingsystemrelease": [ "14.04" ]},
   ],
   "dependencies": [
-    { "name": "thbe-yum", "version_range": ">= 0.4.10" },
     { "name": "puppetlabs-stdlib", "version_range": ">= 1.0.0" }
   ]
 }

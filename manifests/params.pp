@@ -26,6 +26,18 @@ class ssmtp::params {
       $configRevaliasesConf         = '/etc/ssmtp/revaliases'
       $configRevaliasesConfTemplate = 'ssmtp/etc/revaliases.erb'
     }
+    'Debian' : {
+      $linux = true
+
+      # Package definition
+      $packageCommon = 'ssmtp'
+      
+      # Config definition
+      $configSsmtpConf              = '/etc/ssmtp/ssmtp.conf'
+      $configSsmtpConfTemplate      = 'ssmtp/etc/ssmtp.conf.erb'
+      $configRevaliasesConf         = '/etc/ssmtp/revaliases'
+      $configRevaliasesConfTemplate = 'ssmtp/etc/revaliases.erb'      
+    }
     default  : {
       $linux = false
     }

@@ -61,6 +61,7 @@
 #
 # Thomas Bendler <project@bendler-net.de>
 # Thomas Mueller <mueller@puzzle.ch>
+# Jos van Bakel <josvanbakel@gmail.com>
 #
 # === Copyright
 #
@@ -81,13 +82,7 @@ class ssmtp (
   $tlskey           = undef,
   $tlscafile        = undef,
   $tlscadir         = undef,
-  $require_yum      = true,
 ) inherits ssmtp::params {
-
-  if str2bool($require_yum) {
-    # Require class yum to have the relevant repositories in place
-    require yum
-  }
 
   # Start workflow
   if $ssmtp::params::linux {
