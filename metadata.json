@@ -10,7 +10,7 @@
   "operatingsystem_support": [
     { "operatingsystem": "Scientific", "operatingsystemrelease": [ "6.0", "7.0" ] },
     { "operatingsystem": "CentOS", "operatingsystemrelease": [ "6.0", "7.0" ] },
-    { "operatingsystem": "Ubuntu", "operatingsystemrelease": [ "14.04" ]},
+    { "operatingsystem": "Ubuntu", "operatingsystemrelease": [ "14.04" ]}
   ],
   "dependencies": [
     { "name": "puppetlabs-stdlib", "version_range": ">= 1.0.0" }
