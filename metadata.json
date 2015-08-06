@@ -1,12 +1,12 @@
 {
-  "name": "thbe-ssmtp",
+  "name": "c0deaddict-ssmtp",
   "version": "0.4.0",
-  "author": "thbe",
+  "author": "c0deaddict",
   "summary": "sSMTP management module",
   "license": "GPL-3.0",
-  "source": "https://github.com/thbe/puppet-ssmtp.git",
-  "project_page": "https://github.com/thbe/puppet-ssmtp",
-  "issues_url": "https://github.com/thbe/puppet-ssmtp/issues",
+  "source": "https://github.com/c0deaddict/puppet-ssmtp.git",
+  "project_page": "https://github.com/c0deaddict/puppet-ssmtp",
+  "issues_url": "https://github.com/c0deaddict/puppet-ssmtp/issues",
   "operatingsystem_support": [
     { "operatingsystem": "Scientific", "operatingsystemrelease": [ "6.0", "7.0" ] },
     { "operatingsystem": "CentOS", "operatingsystemrelease": [ "6.0", "7.0" ] },
