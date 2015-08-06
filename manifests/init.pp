@@ -6,8 +6,9 @@
 #
 # Document parameters here.
 #
-# [*defaultMta*]
-#   if set to ssmtp, this class will be used
+# [*updateAlternatives*]
+#   if set, this indicates that the OS does not set ssmtp as default MTA
+#   please don't override the default value from ssmtp::params
 #
 # [*rootEmail*]
 #   Mail address that get root mails
@@ -45,8 +46,11 @@
 # [tlscadir]
 #   ssmtp.conf parameter. see man 5 ssmtp.conf
 #
-# [require_yum] (bool, default=true)
-#   It set to false module yum will not be required.
+# [usetls]
+#   ssmtp.conf parameter, see man 5 ssmtp.conf
+#
+# [usestarttls]
+#   ssmtp.conf parameter, see man 5 ssmtp.conf
 #
 # === Variables
 #
@@ -68,31 +72,28 @@
 # Copyright 2015 Thomas Bendler
 #
 class ssmtp (
-  $defaultMta       = $ssmtp::params::defaultMta,
-  $rootEmail        = $ssmtp::params::rootEmail,
-  $mailHub          = $ssmtp::params::mailHub,
-  $revaliases       = $ssmtp::params::revaliases,
-  $fromlineoverride = $ssmtp::params::fromlineoverride,
-  $authuser         = undef,
-  $authpass         = undef,
-  $authmethod       = undef,
-  $usetls           = undef,
-  $usestarttls      = undef,
-  $tlscert          = undef,
-  $tlskey           = undef,
-  $tlscafile        = undef,
-  $tlscadir         = undef,
+  $updateAlternatives = $ssmtp::params::defaultMta,
+  $rootEmail          = $ssmtp::params::rootEmail,
+  $mailHub            = $ssmtp::params::mailHub,
+  $revaliases         = $ssmtp::params::revaliases,
+  $fromlineoverride   = $ssmtp::params::fromlineoverride,
+  $authuser           = undef,
+  $authpass           = undef,
+  $authmethod         = undef,
+  $usetls             = undef,
+  $usestarttls        = undef,
+  $tlscert            = undef,
+  $tlskey             = undef,
+  $tlscafile          = undef,
+  $tlscadir           = undef,
 ) inherits ssmtp::params {
 
-  # Start workflow
-  if $ssmtp::params::linux {
-    # Containment
-    contain ssmtp::package
-    contain ssmtp::config
-    contain ssmtp::service
+  contain ssmtp::package
+  contain ssmtp::config
+  contain ssmtp::service
 
-    Class['ssmtp::package'] ->
-    Class['ssmtp::config'] ->
-    Class['ssmtp::service']
-  }
+  Class['ssmtp::package'] ->
+  Class['ssmtp::config'] ->
+  Class['ssmtp::service']
+
 }

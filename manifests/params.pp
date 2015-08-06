@@ -12,41 +12,27 @@
 #
 class ssmtp::params {
 
+  $packageCommon                = 'ssmtp'
+  $configSsmtpConf              = '/etc/ssmtp/ssmtp.conf'
+  $configSsmtpConfTemplate      = 'ssmtp/etc/ssmtp.conf.erb'
+  $configRevaliasesConf         = '/etc/ssmtp/revaliases'
+  $configRevaliasesConfTemplate = 'ssmtp/etc/revaliases.erb'
+  $rootEmail                    = 'john.doe@example.local'
+  $mailHub                      = 'mail.example.local'
+  $revaliases                   = ['# Custom revaliases']
+  $fromlineoverride             = 'Yes'
+
   # Operating system specific definitions
   case $::osfamily {
     'RedHat' : {
-      $linux = true
-
-      # Package definition
-      $packageCommon = 'ssmtp'
-
-      # Config definition
-      $configSsmtpConf              = '/etc/ssmtp/ssmtp.conf'
-      $configSsmtpConfTemplate      = 'ssmtp/etc/ssmtp.conf.erb'
-      $configRevaliasesConf         = '/etc/ssmtp/revaliases'
-      $configRevaliasesConfTemplate = 'ssmtp/etc/revaliases.erb'
+      $updateAlternatives = true
     }
     'Debian' : {
-      $linux = true
-
-      # Package definition
-      $packageCommon = 'ssmtp'
-      
-      # Config definition
-      $configSsmtpConf              = '/etc/ssmtp/ssmtp.conf'
-      $configSsmtpConfTemplate      = 'ssmtp/etc/ssmtp.conf.erb'
-      $configRevaliasesConf         = '/etc/ssmtp/revaliases'
-      $configRevaliasesConfTemplate = 'ssmtp/etc/revaliases.erb'      
+      $updateAlternatives = false
     }
     default  : {
-      $linux = false
+      fail "Unsupported OS ${::osfamily}"
     }
   }
 
-  # sSMTP definitions
-  $defaultMta       = 'ssmtp'
-  $rootEmail        = 'john.doe@example.local'
-  $mailHub          = 'mail.example.local'
-  $revaliases       = ['# Custom revaliases']
-  $fromlineoverride = 'YES'
 }

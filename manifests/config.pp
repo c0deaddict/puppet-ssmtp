@@ -12,20 +12,19 @@
 #
 class ssmtp::config {
   # make parameters available in local scope for usage in templates
-  $defaultMta       = $ssmtp::defaultMta
-  $rootEmail        = $ssmtp::rootEmail
-  $mailHub          = $ssmtp::mailHub
-  $revaliases       = $ssmtp::revaliases
-  $fromlineoverride = $ssmtp::fromlineoverride
-  $authuser         = $ssmtp::authuser
-  $authpass         = $ssmtp::authpass
-  $authmethod       = $ssmtp::authmethod
-  $usetls           = $ssmtp::usetls
-  $usestarttls      = $ssmtp::usestarttls
-  $tlscert          = $ssmtp::tlscert
-  $tlskey           = $ssmtp::tlskey
-  $tlscafile        = $ssmtp::tlscafile
-  $tlscadir         = $ssmtp::tlscadir
+  $rootEmail          = $ssmtp::rootEmail
+  $mailHub            = $ssmtp::mailHub
+  $revaliases         = $ssmtp::revaliases
+  $fromlineoverride   = $ssmtp::fromlineoverride
+  $authuser           = $ssmtp::authuser
+  $authpass           = $ssmtp::authpass
+  $authmethod         = $ssmtp::authmethod
+  $usetls             = $ssmtp::usetls
+  $usestarttls        = $ssmtp::usestarttls
+  $tlscert            = $ssmtp::tlscert
+  $tlskey             = $ssmtp::tlskey
+  $tlscafile          = $ssmtp::tlscafile
+  $tlscadir           = $ssmtp::tlscadir
 
 
   # sSMTP configuration

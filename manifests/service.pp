@@ -13,7 +13,8 @@
 class ssmtp::service {
 
   # sSMTP service configuration
-  if $ssmtp::defaultMta == 'ssmtp' {
+  if $ssmtp::updateAlternatives {
+    # TODO this is RedHat specific
     exec { 'alternatives --set mta /usr/sbin/sendmail.ssmtp':
       path   => '/bin:/sbin:/usr/bin:/usr/sbin',
       unless => 'test /etc/alternatives/mta -ef /usr/sbin/sendmail.ssmtp'
