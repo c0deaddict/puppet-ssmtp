@@ -6,50 +6,50 @@
 #
 # Document parameters here.
 #
-# [*updateAlternatives*]
+# [*update_alternatives*]
 #   if set, this indicates that the OS does not set ssmtp as default MTA
 #   please don't override the default value from ssmtp::params
 #
-# [*rootEmail*]
+# [*root_email*]
 #   Mail address that get root mails
 #
-# [*mailHub*]
+# [*mail_hub*]
 #   server that handle outgoing mail
 #
-# [fromlineoverride]
+# [from_line_override]
 #   Default: YES
 #
 # [*revaliases*]
 #   Array of reverse aliases
 #
-# [authuser]
+# [auth_user]
 #   ssmtp.conf parameter. see man 5 ssmtp.conf
 #
-# [authpass]
+# [auth_pass]
 #   ssmtp.conf parameter. see man 5 ssmtp.conf
 #
-# [authmethod]
+# [auth_method]
 #   ssmtp.conf parameter. see man 5 ssmtp.conf
 #
-# [tlscert]
+# [tls_cert]
 #   ssmtp.conf parameter. see man 5 ssmtp.conf
 #
-# [tlskey]
+# [tls_key]
 #   ssmtp.conf parameter. see man 5 ssmtp.conf
 #
-# [authuser]
+# [auth_user]
 #   ssmtp.conf parameter. see man 5 ssmtp.conf
 #
-# [tlscafile]
+# [tls_ca_file]
 #   ssmtp.conf parameter. see man 5 ssmtp.conf
 #
-# [tlscadir]
+# [tls_ca_dir]
 #   ssmtp.conf parameter. see man 5 ssmtp.conf
 #
-# [usetls]
+# [use_tls]
 #   ssmtp.conf parameter, see man 5 ssmtp.conf
 #
-# [usestarttls]
+# [use_start_tls]
 #   ssmtp.conf parameter, see man 5 ssmtp.conf
 #
 # === Variables
@@ -57,8 +57,8 @@
 # === Examples
 #
 #  class { '::ssmtp':
-#    mailHub => 'mail.example.local',
-#    rootEmail => 'john.doe@example.local',
+#    mail_hub => 'mail.example.local',
+#    root_email => 'john.doe@example.local',
 #  }
 #
 # === Authors
@@ -72,20 +72,20 @@
 # Copyright 2015 Thomas Bendler
 #
 class ssmtp (
-  $updateAlternatives = $ssmtp::params::defaultMta,
-  $rootEmail          = $ssmtp::params::rootEmail,
-  $mailHub            = $ssmtp::params::mailHub,
-  $revaliases         = $ssmtp::params::revaliases,
-  $fromlineoverride   = $ssmtp::params::fromlineoverride,
-  $authuser           = undef,
-  $authpass           = undef,
-  $authmethod         = undef,
-  $usetls             = undef,
-  $usestarttls        = undef,
-  $tlscert            = undef,
-  $tlskey             = undef,
-  $tlscafile          = undef,
-  $tlscadir           = undef,
+  $update_alternatives = $ssmtp::params::update_alternatives,
+  $root_email          = $ssmtp::params::root_email,
+  $mail_hub            = $ssmtp::params::mail_hub,
+  $revaliases          = $ssmtp::params::revaliases,
+  $from_line_override  = $ssmtp::params::from_line_override,
+  $auth_user           = undef,
+  $auth_pass           = undef,
+  $auth_method         = undef,
+  $use_tls             = undef,
+  $use_start_tls       = undef,
+  $tls_cert            = undef,
+  $tls_key             = undef,
+  $tls_ca_file         = undef,
+  $tls_ca_dir          = undef,
 ) inherits ssmtp::params {
 
   contain ssmtp::package

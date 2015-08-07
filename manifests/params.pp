@@ -12,23 +12,23 @@
 #
 class ssmtp::params {
 
-  $packageCommon                = 'ssmtp'
-  $configSsmtpConf              = '/etc/ssmtp/ssmtp.conf'
-  $configSsmtpConfTemplate      = 'ssmtp/etc/ssmtp.conf.erb'
-  $configRevaliasesConf         = '/etc/ssmtp/revaliases'
-  $configRevaliasesConfTemplate = 'ssmtp/etc/revaliases.erb'
-  $rootEmail                    = 'john.doe@example.local'
-  $mailHub                      = 'mail.example.local'
-  $revaliases                   = ['# Custom revaliases']
-  $fromlineoverride             = 'Yes'
+  $package_common                  = 'ssmtp'
+  $config_ssmtp_conf               = '/etc/ssmtp/ssmtp.conf'
+  $config_ssmtp_conf_template      = 'ssmtp/etc/ssmtp.conf.erb'
+  $config_revaliases_conf          = '/etc/ssmtp/revaliases'
+  $config_revaliases_conf_template = 'ssmtp/etc/revaliases.erb'
+  $root_email                      = 'john.doe@example.local'
+  $mail_hub                        = 'mail.example.local'
+  $revaliases                      = []
+  $from_line_override              = 'Yes'
 
   # Operating system specific definitions
   case $::osfamily {
     'RedHat' : {
-      $updateAlternatives = true
+      $update_alternatives = true
     }
     'Debian' : {
-      $updateAlternatives = false
+      $update_alternatives = false
     }
     default  : {
       fail "Unsupported OS ${::osfamily}"

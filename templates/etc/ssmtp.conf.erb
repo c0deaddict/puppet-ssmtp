@@ -5,35 +5,36 @@
 # managed by Puppet, local changes will be overwritten
 #
 
-root=<%= @rootEmail %>
-mailhub=<%= @mailHub %>
+root=<%= @root_email %>
+FromLineOverride=<%= @from_line_override %>
 
-FromLineOverride=<%= @fromlineoverride %>
+<% if @use_tls -%>
+UseTLS=<%= @use_tls %>
+<% end -%>
+<% if @use_start_tls -%>
+UseSTARTTLS=<%= @use_start_tls %>
+<% end -%>
 
-<% if @authuser -%>
-AuthUser=<%= @authuser %>
+mailhub=<%= @mail_hub %>
+
+<% if @auth_user -%>
+AuthUser=<%= @auth_user %>
 <% end -%>
-<%- if @authpass -%>
-AuthPass=<%= @authpass %>
+<%- if @auth_pass -%>
+AuthPass=<%= @auth_pass %>
 <% end -%>
-<% if @authmethod -%>
-AuthMethod=<%= @authmethod %>
+<% if @auth_method -%>
+AuthMethod=<%= @auth_method %>
 <% end -%>
-<% if @usetls -%>
-UseTLS=<%= @usetls %>
+<% if @tls_cert -%>
+TLSCert=<%= @tls_cert %>
 <% end -%>
-<% if @usestartls -%>
-UseSTARTTLS=<%= @usestarttls %>
+<% if @tls_key -%>
+TLSKey=<%= @tls_key %>
 <% end -%>
-<% if @tlscert -%>
-TLSCert=<%= @tlscert %>
+<% if @tls_ca_file -%>
+TLS_CA_File=<%= @tls_ca_file %>
 <% end -%>
-<% if @tlskey -%>
-TLSKey=<%= @tlskey %>
-<% end -%>
-<% if @tlscafile -%>
-TLS_CA_File=<%= @tlscafile %>
-<% end -%>
-<% if @tlscadir -%>
-TLS_CA_Dir=<%= @tlscadir %>
+<% if @tls_ca_dir -%>
+TLS_CA_Dir=<%= @tls_ca_dir %>
 <% end -%>
